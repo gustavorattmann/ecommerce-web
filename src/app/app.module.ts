@@ -5,10 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CadastrarProdutoComponent } from './components/cadastrar-produto/cadastrar-produto.component';
+import { AlterarProdutoComponent } from './components/alterar-produto/alterar-produto.component';
+import { ListarProdutosComponent } from './components/listar-produtos/listar-produtos.component';
+import { VisualizarProdutoComponent } from './components/visualizar-produto/visualizar-produto.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadastrarProdutoComponent,
+    AlterarProdutoComponent,
+    ListarProdutosComponent,
+    VisualizarProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
