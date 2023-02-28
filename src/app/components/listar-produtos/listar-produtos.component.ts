@@ -9,12 +9,12 @@ import { ProdutoService } from 'src/app/services/produto.service';
 })
 export class ListarProdutosComponent implements OnInit {
   produto: Produto = {
-    id: '',
+    codigo: '',
     nome: '',
     preco: 0
   };
 
-  displayedColumns: string[] = ['id', 'nome', 'preco'];
+  displayedColumns: string[] = ['codigo', 'nome', 'preco'];
 
   dataSource : any[] = [];
 

@@ -16,19 +16,19 @@ export class ProdutoService {
     return this.http.get<Produto[]>(`${baseUrl}/produtos`);
   }
 
-  get(id: any): Observable<Produto> {
-    return this.http.get<Produto>(`${baseUrl}/${id}`);
+  get(codigo: any): Observable<Produto> {
+    return this.http.get<Produto>(`${baseUrl}/${codigo}`);
   }
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
   }
 
-  update(id: any, data: any): Observable<any> {
-    return this.http.patch(`${baseUrl}/${id}}`, data);
+  update(codigo: any, data: any): Observable<any> {
+    return this.http.patch(`${baseUrl}/${codigo}}`, data);
   }
 
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+  delete(codigo: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${codigo}`);
   }
 }
