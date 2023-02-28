@@ -1,1 +1,17 @@
-<p>listar-produtos works!</p>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.nome}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="preco">
+    <mat-header-cell *matHeaderCellDef> Preço </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.preco}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['id', 'nome', 'preco']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['id', 'nome', 'preco']"></mat-row>
+</mat-table>
