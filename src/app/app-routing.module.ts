@@ -7,10 +7,10 @@ import { AlterarProdutoComponent } from './components/alterar-produto/alterar-pr
 
 const routes: Routes = [
   { path: '', redirectTo: 'produtos', pathMatch: 'full' },
-  { path: 'produtos', component: ListarProdutosComponent },
-  { path: 'produto/:id', component: VisualizarProdutoComponent },
-  { path: 'produto/cadastrar', component: CadastrarProdutoComponent },
-  { path: 'produto/alterar/:id', component: AlterarProdutoComponent }
+  { path: 'produtos', component: ListarProdutosComponent, title: 'Listar Produtos' },
+  { path: 'produto/cadastrar', component: CadastrarProdutoComponent, title: 'Cadastrar Produto' },
+  { path: 'produto/alterar/:id', component: AlterarProdutoComponent, title: 'Alterar Produto' },
+  { path: 'produto/:id', component: VisualizarProdutoComponent, title: 'Visualizar Produto' }
 ];
 
 @NgModule({

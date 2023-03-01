@@ -9,13 +9,18 @@ import { CadastrarProdutoComponent } from './components/cadastrar-produto/cadast
 import { AlterarProdutoComponent } from './components/alterar-produto/alterar-produto.component';
 import { ListarProdutosComponent } from './components/listar-produtos/listar-produtos.component';
 import { VisualizarProdutoComponent } from './components/visualizar-produto/visualizar-produto.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { getPortuguesePaginatorIntl } from './components/listar-produtos/portuguese-paginator-intl';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -36,13 +41,26 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     }),
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
+    MatSidenavModule,
     MatIconModule,
+    MatButtonModule,
+    MatInputModule,
     MatTableModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatPaginatorIntl,
+      useValue: getPortuguesePaginatorIntl()
+    },
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: 'pt-BR'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
