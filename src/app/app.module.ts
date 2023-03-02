@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastrarProdutoComponent } from './components/cadastrar-produto/cadastrar-produto.component';
-import { AlterarProdutoComponent } from './components/alterar-produto/alterar-produto.component';
 import { ListarProdutosComponent } from './components/listar-produtos/listar-produtos.component';
 import { VisualizarProdutoComponent } from './components/visualizar-produto/visualizar-produto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +25,6 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
   declarations: [
     AppComponent,
     CadastrarProdutoComponent,
-    AlterarProdutoComponent,
     ListarProdutosComponent,
     VisualizarProdutoComponent
   ],

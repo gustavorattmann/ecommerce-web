@@ -10,8 +10,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cadastrar-produto.component.css']
 })
 export class CadastrarProdutoComponent implements OnInit {
-  title = 'Teste';
-
   formProduto!: FormGroup;
 
   constructor(private produtoService: ProdutoService, private formBuilder: FormBuilder) { }
