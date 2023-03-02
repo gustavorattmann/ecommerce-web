@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/produto.model';
 import { ProdutoService } from 'src/app/services/produto.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -42,15 +43,41 @@ export class CadastrarProdutoComponent implements OnInit {
   }
 
   onSubmit() {
-    // aqui você pode implementar a logica para fazer seu formulário salvar
     this.produtoService.create(this.formProduto.value).subscribe(
       val => {},
       response => {
         if (response.status === 200) {
-          console.log(response.error.text);
-        } else {
-          console.log('Falha no cadastro!');
+          Swal.fire({
+            text: 'Produto cadastrado com sucesso!',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = '/produtos';
+            }
+          });
+
+          return true;
         }
+
+        var texto = 'Falha no cadastro!'
+
+        if (response.hasOwnProperty('error')) {
+            if (response.error.hasOwnProperty('nome')) {
+              texto = response.error.nome;
+            } else if (response.error.hasOwnProperty('preco')) {
+              texto = response.error.preco;
+            }
+        }
+
+        Swal.fire({
+          text: texto,
+          icon: 'error',
+          confirmButtonText: 'Voltar'
+        });
+
+        return false;
       },
       () => {}
     );
