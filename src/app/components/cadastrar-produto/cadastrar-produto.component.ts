@@ -48,7 +48,7 @@ export class CadastrarProdutoComponent implements OnInit {
           Swal.fire({
             text: 'Produto cadastrado com sucesso!',
             icon: 'success',
-            confirmButtonText: 'Ok',
+            confirmButtonText: 'OK',
             allowOutsideClick: false
           }).then((resultado) => {
             if (resultado.isConfirmed) {
@@ -59,7 +59,7 @@ export class CadastrarProdutoComponent implements OnInit {
           return true;
         }
 
-        var texto = 'Falha no cadastro!'
+        var texto = 'Falha no cadastro do produto!'
 
         if (response.hasOwnProperty('error')) {
             if (response.error.hasOwnProperty('nome')) {

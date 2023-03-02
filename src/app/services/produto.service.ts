@@ -29,6 +29,6 @@ export class ProdutoService {
   }
 
   delete(codigo: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/produto/deletar${codigo}`);
+    return this.http.delete(`${baseUrl}/produto/deletar/${codigo}`);
   }
 }
