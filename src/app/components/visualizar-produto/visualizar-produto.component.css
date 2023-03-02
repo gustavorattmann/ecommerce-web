@@ -19,6 +19,14 @@ h1 {
   display: block;
 }
 
+.div-botoes {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
 @media (max-width: 767px) {
   .form {
     width: 90%;

@@ -17,7 +17,7 @@ export class ListarProdutosComponent implements OnInit {
     preco: 0
   };
 
-  displayedColumns: string[] = ['codigo', 'nome', 'preco'];
+  displayedColumns: string[] = ['codigo', 'nome', 'preco', 'action'];
 
   dataSource : any[] = [];
 
