@@ -13,25 +13,20 @@
         <mat-header-cell *matHeaderCellDef> Preço (R$) </mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.preco}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="visualizar">
-        <mat-header-cell *matHeaderCellDef> Visualizar </mat-header-cell>
+      <ng-container matColumnDef="acoes">
+        <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
         <mat-cell *matCellDef="let row">
           <a routerLink="/produto/{{row.codigo}}">
             <button matSuffix mat-icon-button><mat-icon>remove_red_eye</mat-icon></button>
           </a>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="deletar">
-        <mat-header-cell *matHeaderCellDef> Deletar </mat-header-cell>
-        <mat-cell *matCellDef="let row">
           <button matSuffix mat-icon-button (click)="deletarProduto(row.codigo)">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>
       </ng-container>
 
-      <mat-header-row *matHeaderRowDef="['codigo', 'nome', 'preco', 'visualizar', 'deletar']"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: ['codigo', 'nome', 'preco', 'visualizar', 'deletar']"></mat-row>
+      <mat-header-row *matHeaderRowDef="['codigo', 'nome', 'preco', 'acoes']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['codigo', 'nome', 'preco', 'acoes']"></mat-row>
     </mat-table>
     <mat-paginator [length]="100"
                    [pageSize]="10"

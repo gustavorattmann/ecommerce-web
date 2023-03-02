@@ -1,5 +1,12 @@
 <div *ngIf="exibirTela">
   <form class="form">
+    <div class="div-botoes">
+      <a routerLink="/produtos">
+        <button mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </a>
+    </div>
     <h1>Visualizar Produto {{ dados.nome }}</h1>
     <mat-form-field class="campo-nome">
       <mat-label>Nome</mat-label>
@@ -15,12 +22,5 @@
         <mat-icon>edit</mat-icon>
       </button>
     </mat-form-field>
-    <div class="div-botoes">
-      <a routerLink="/produtos">
-        <button matSuffix mat-raised-button>
-          Voltar
-        </button>
-      </a>
-    </div>
   </form>
 </div>
