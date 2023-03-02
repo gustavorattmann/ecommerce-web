@@ -24,14 +24,4 @@ Para cadastrar um novo produto:
 /produto/cadastrar
 ```
 
-Para alterar um produto específico:
-```
-/produto/alterar/63f6f2a4093d752d2dae4f2f
-```
-
-Para deletar um produto específico:
-```
-/produto/deletar/63f6f2a4093d752d2dae4f2f
-```
-
 ***Observação**: os códigos em todas as rotas são para exemplo.*
