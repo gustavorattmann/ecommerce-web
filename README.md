@@ -9,29 +9,22 @@ ng serve
 ```
 
 ## Rotas
-Para obter todos os produtos:
+Para visualizar todos os produtos:
 ```
-/api/produtos
+/produtos
 ```
 
-Para obter um produto específico:
+Para visualizar um produto específico:
 ```
-/api/produto/63f6f2a4093d752d2dae4f2f
+/produto/63f6f2a4093d752d2dae4f2f
 ```
 
 Para cadastrar um novo produto:
 ```
-/api/produto/cadastrar
+/produto/cadastrar
 ```
 
-Para alterar um produto específico:
-```
-/api/produto/alterar/63f6f2a4093d752d2dae4f2f
-```
-
-Para deletar um produto específico:
-```
-/api/produto/deletar/63f6f2a4093d752d2dae4f2f
-```
+Para alterar um produto, precisa acessar a página do produto.
+Para deletar um produto, pode ser feito na mesma tela que visualiza todos.
 
 ***Observação**: os códigos em todas as rotas são para exemplo.*

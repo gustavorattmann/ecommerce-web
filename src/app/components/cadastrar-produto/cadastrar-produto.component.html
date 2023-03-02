@@ -1,0 +1,25 @@
+<form class="form" [formGroup]="formProduto">
+  <h1>Cadastrar Produto</h1>
+  <mat-form-field class="campo-nome">
+    <mat-label>Nome</mat-label>
+    <input matInput type="text" placeholder="Digite o nome do produto" formControlName="nome">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="limparNome()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="campo-preco">
+    <mat-label>Preço</mat-label>
+    <input matInput type="text" placeholder="Digite o preço do produto" formControlName="preco">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="limparPreco()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="div-botoes">
+    <button mat-raised-button color="warn" id="botao-limpar" (click)="limparCampos()">
+      Limpar
+    </button>
+    <button mat-raised-button id="botao-cadastrar" (click)="onSubmit()">
+      Cadastrar
+    </button>
+  </div>
+</form>
