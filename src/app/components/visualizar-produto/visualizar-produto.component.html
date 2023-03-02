@@ -1,5 +1,5 @@
 <div *ngIf="exibirTela">
-  <form class="form">
+  <form class="form" [formGroup]="formProduto">
     <div class="div-botoes">
       <a routerLink="/produtos">
         <button mat-icon-button>
@@ -10,16 +10,28 @@
     <h1>Visualizar Produto {{ dados.nome }}</h1>
     <mat-form-field class="campo-nome">
       <mat-label>Nome</mat-label>
-      <input matInput type="text" placeholder="Digite o nome do produto" value="{{ dados.nome }}" disabled>
-      <button matSuffix mat-icon-button aria-label="Edit">
+      <input matInput type="text" placeholder="Digite o nome do produto" formControlName="nome">
+      <button matSuffix mat-icon-button (click)="alterarCampo()" aria-label="Edit" *ngIf="exibirCampoNome">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="cancelarAlterarCampo()" aria-label="Cancel" *ngIf="!exibirCampoNome">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="confirmarAlterarCampo()" aria-label="Confirm" *ngIf="!exibirCampoNome">
+        <mat-icon>check</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="campo-preco">
       <mat-label>Preço</mat-label>
-      <input matInput type="text" placeholder="Digite o preço do produto" value="{{ dados.preco }}" disabled>
-      <button matSuffix mat-icon-button aria-label="Edit">
+      <input matInput type="text" placeholder="Digite o preço do produto" formControlName="preco">
+      <button matSuffix mat-icon-button (click)="alterarCampo('preco')" aria-label="Edit" *ngIf="exibirCampoPreco">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="cancelarAlterarCampo('preco')" aria-label="Cancel" *ngIf="!exibirCampoPreco">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="confirmarAlterarCampo('preco')" aria-label="Confirm" *ngIf="!exibirCampoPreco">
+        <mat-icon>check</mat-icon>
       </button>
     </mat-form-field>
   </form>
