@@ -1,0 +1,26 @@
+.form {
+  width: 40vw;
+  margin: 25vh auto;
+  background-color: #1976d2;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.campo-nome, .campo-preco {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .form {
+    width: 90%;
+  }
+}

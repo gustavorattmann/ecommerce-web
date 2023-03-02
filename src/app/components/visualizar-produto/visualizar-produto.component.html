@@ -1,1 +1,19 @@
-<p>visualizar-produto works!</p>
+<div *ngIf="exibirTela">
+  <form class="form">
+    <h1>Visualizar Produto {{ dados.nome }}</h1>
+    <mat-form-field class="campo-nome">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" placeholder="Digite o nome do produto" value="{{ dados.nome }}" disabled>
+      <button matSuffix mat-icon-button aria-label="Edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="campo-preco">
+      <mat-label>Preço</mat-label>
+      <input matInput type="text" placeholder="Digite o preço do produto" value="{{ dados.preco }}" disabled>
+      <button matSuffix mat-icon-button aria-label="Edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</div>

@@ -49,9 +49,9 @@ export class CadastrarProdutoComponent implements OnInit {
             text: 'Produto cadastrado com sucesso!',
             icon: 'success',
             confirmButtonText: 'Ok',
-            allowOutsideClick: false,
-          }).then((result) => {
-            if (result.isConfirmed) {
+            allowOutsideClick: false
+          }).then((resultado) => {
+            if (resultado.isConfirmed) {
               window.location.href = '/produtos';
             }
           });

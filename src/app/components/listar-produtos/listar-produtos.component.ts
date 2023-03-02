@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/produto.model';
 import { ProdutoService } from 'src/app/services/produto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar-produtos',
@@ -8,6 +9,8 @@ import { ProdutoService } from 'src/app/services/produto.service';
   styleUrls: ['./listar-produtos.component.css']
 })
 export class ListarProdutosComponent implements OnInit {
+  exibirTela = false;
+
   produto: Produto = {
     codigo: '',
     nome: '',
@@ -23,8 +26,25 @@ export class ListarProdutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.produtoService.getAll().subscribe(data => {
-      this.dataSource = data;
-    });
+    this.produtoService.getAll().subscribe(
+      data => {
+        this.dataSource = data;
+
+        this.exibirTela = true;
+      },
+      response => {
+        console.log(response)
+
+        if (response.hasOwnProperty('error')) {
+          if (response.error.hasOwnProperty('text')) {
+            Swal.fire({
+              text: response.error.text,
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            });
+          }
+        }
+      }
+    );
   }
 }
