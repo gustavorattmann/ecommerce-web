@@ -31,7 +31,11 @@
             ],
             "scripts": [],
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "ngswConfigPath": "ngsw-config.json",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "sweetalert2"
+            ]
           },
           "configurations": {
             "production": {
