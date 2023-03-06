@@ -91,3 +91,15 @@ mat-divider {
 main {
   padding: 50px 10px;
 }
+
+a h1 {
+  color: #fff;
+}
+
+a:hover h1, mat-sidenav a:hover {
+  color: #a8a8a8;
+}
+
+mat-sidenav .active {
+  color: #333;
+}

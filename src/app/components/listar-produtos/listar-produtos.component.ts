@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Produto } from 'src/app/models/produto.model';
 import { ProdutoService } from 'src/app/services/produto.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,39 +12,47 @@ import Swal from 'sweetalert2';
   templateUrl: './listar-produtos.component.html',
   styleUrls: ['./listar-produtos.component.css']
 })
-export class ListarProdutosComponent implements OnInit {
+export class ListarProdutosComponent implements AfterViewInit {
   exibirTela = false;
-
-  produto: Produto = {
-    codigo: '',
-    nome: '',
-    preco: 0
-  };
+  isLoading = true;
 
   displayedColumns: string[] = ['codigo', 'nome', 'preco', 'acoes'];
+  dataSource = new MatTableDataSource<Produto>();
 
-  dataSource : any[] = [];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  constructor (private produtoService: ProdutoService) {
+  ngAfterViewInit() {
+    this.carregarTabelaProdutos();
 
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
-  ngOnInit(): void {
-    this.carregarTabelaProdutos();
+  constructor (private produtoService: ProdutoService, private _liveAnnouncer: LiveAnnouncer) { }
+
+  alterarOrdem(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+    } else {
+      this._liveAnnouncer.announce('Sorting cleared');
+    }
   }
 
   carregarTabelaProdutos() {
     this.produtoService.getAll().subscribe(
       data => {
-        this.dataSource = data;
+        this.dataSource.data = data;
 
         this.exibirTela = true;
+
+        this.isLoading = false;
       },
       response => {
-        console.log(response)
-
         if (response.hasOwnProperty('error')) {
           if (response.error.hasOwnProperty('text')) {
+            this.isLoading = false;
+
             Swal.fire({
               text: response.error.text,
               icon: 'error',

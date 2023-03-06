@@ -11,6 +11,7 @@ import { VisualizarProdutoComponent } from './components/visualizar-produto/visu
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
@@ -18,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { getPortuguesePaginatorIntl } from './components/listar-produtos/portuguese-paginator-intl';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
@@ -42,6 +44,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     MatToolbarModule,
     MatSidenavModule,
     MatDividerModule,
@@ -49,6 +52,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     MatButtonModule,
     MatInputModule,
     MatTableModule,
+    MatSortModule,
     MatPaginatorModule
   ],
   providers: [
