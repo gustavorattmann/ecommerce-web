@@ -52,7 +52,21 @@ export class CadastrarProdutoComponent implements OnInit {
             allowOutsideClick: false
           }).then((resultado) => {
             if (resultado.isConfirmed) {
-              window.location.href = '/produtos';
+              Swal.fire({
+                text: 'Deseja continuar cadastrando?',
+                icon: 'question',
+                confirmButtonText: 'Sim',
+                showConfirmButton: true,
+                cancelButtonText: 'Não',
+                showCancelButton: true,
+                allowOutsideClick: false
+              }).then((resultado) => {
+                if (!resultado.isConfirmed) {
+                  window.location.href = '/produtos';
+                } else {
+                  this.limparCampos();
+                }
+              });
             }
           });
 

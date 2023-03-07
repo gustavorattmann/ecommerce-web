@@ -30,3 +30,12 @@ a {
   width: 100vw;
   height: 100vh;
 }
+
+.linha-vazia {
+  text-align: center;
+}
+
+.linha-vazia td {
+  padding: 15px 0;
+  background-color: #e2e2e2;
+}

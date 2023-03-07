@@ -13,8 +13,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./listar-produtos.component.css']
 })
 export class ListarProdutosComponent implements AfterViewInit {
-  exibirTela = false;
   isLoading = true;
+  textoPadrao = '';
 
   displayedColumns: string[] = ['codigo', 'nome', 'preco', 'acoes'];
   dataSource = new MatTableDataSource<Produto>();
@@ -44,8 +44,6 @@ export class ListarProdutosComponent implements AfterViewInit {
       data => {
         this.dataSource.data = data;
 
-        this.exibirTela = true;
-
         this.isLoading = false;
       },
       response => {
@@ -53,11 +51,7 @@ export class ListarProdutosComponent implements AfterViewInit {
           if (response.error.hasOwnProperty('text')) {
             this.isLoading = false;
 
-            Swal.fire({
-              text: response.error.text,
-              icon: 'error',
-              confirmButtonText: 'OK'
-            });
+            this.textoPadrao = response.error.text;
           }
         }
       }
