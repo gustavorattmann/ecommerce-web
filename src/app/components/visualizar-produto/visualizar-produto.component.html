@@ -1,26 +1,39 @@
 <div *ngIf="exibirTela">
-  <form class="form">
+  <form class="form" [formGroup]="formProduto">
+    <div class="div-botoes">
+      <a routerLink="/produtos">
+        <button mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </a>
+    </div>
     <h1>Visualizar Produto {{ dados.nome }}</h1>
     <mat-form-field class="campo-nome">
       <mat-label>Nome</mat-label>
-      <input matInput type="text" placeholder="Digite o nome do produto" value="{{ dados.nome }}" disabled>
-      <button matSuffix mat-icon-button aria-label="Edit">
+      <input matInput type="text" placeholder="Digite o nome do produto" formControlName="nome">
+      <button matSuffix mat-icon-button (click)="alterarCampo()" title="Editar Produto" aria-label="Edit" *ngIf="exibirCampoNome">
         <mat-icon>edit</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="cancelarAlterarCampo()" title="Cancelar Produto" aria-label="Cancel" *ngIf="!exibirCampoNome">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="confirmarAlterarCampo()" title="Confirmar Alteração de Produto" aria-label="Confirm" *ngIf="!exibirCampoNome">
+        <mat-icon>check</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="campo-preco">
       <mat-label>Preço</mat-label>
-      <input matInput type="text" placeholder="Digite o preço do produto" value="{{ dados.preco }}" disabled>
-      <button matSuffix mat-icon-button aria-label="Edit">
+      <input matInput type="text" placeholder="Digite o preço do produto" formControlName="preco" currencyMask
+      [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+      <button matSuffix mat-icon-button (click)="alterarCampo('preco')" title="Editar Produto" aria-label="Edit" *ngIf="exibirCampoPreco">
         <mat-icon>edit</mat-icon>
       </button>
+      <button matSuffix mat-icon-button (click)="cancelarAlterarCampo('preco')" title="Cancelar Alteração de Produto" aria-label="Cancel" *ngIf="!exibirCampoPreco">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button matSuffix mat-icon-button (click)="confirmarAlterarCampo('preco')" title="Confirmar Alteração de Produto" aria-label="Confirm" *ngIf="!exibirCampoPreco">
+        <mat-icon>check</mat-icon>
+      </button>
     </mat-form-field>
-    <div class="div-botoes">
-      <a routerLink="/produtos">
-        <button matSuffix mat-raised-button>
-          Voltar
-        </button>
-      </a>
-    </div>
   </form>
 </div>

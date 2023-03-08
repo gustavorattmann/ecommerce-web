@@ -1,6 +1,7 @@
 .form {
   width: 40vw;
-  margin: 25vh auto;
+  height: 30vh;
+  margin: calc(35vh - 130px) auto;
   background-color: #1976d2;
   padding: 50px;
   border-radius: 20px;
@@ -20,11 +21,17 @@ h1 {
 }
 
 .div-botoes {
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 a {
   text-decoration: none;
+  color: #fff;
+}
+
+button mat-icon {
+  font-size: 24px;
+  font-weight: 900;
 }
 
 @media (max-width: 767px) {

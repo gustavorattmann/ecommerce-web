@@ -14,11 +14,6 @@ Para visualizar todos os produtos:
 /produtos
 ```
 
-Para visualizar um produto específico:
-```
-/produto/63f6f2a4093d752d2dae4f2f
-```
-
 Para cadastrar um novo produto:
 ```
 /produto/cadastrar

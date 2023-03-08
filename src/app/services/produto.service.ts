@@ -25,7 +25,7 @@ export class ProdutoService {
   }
 
   update(codigo: any, data: any): Observable<any> {
-    return this.http.patch(`${baseUrl}/produto/alterar/${codigo}}`, data);
+    return this.http.patch(`${baseUrl}/produto/alterar/${codigo}`, data);
   }
 
   delete(codigo: any): Observable<any> {

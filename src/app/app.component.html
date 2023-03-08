@@ -1,17 +1,28 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <h1>E-commerce</h1>
+<mat-toolbar class="toolbar" role="banner">
+  <a routerLink="/">
+    <h1>E-commerce</h1>
+  </a>
   <div class="spacer"></div>
-  <button mat-icon-button (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
+  <button mat-icon-button (click)="alternarMenu()">
+    <mat-icon *ngIf="!opened">menu</mat-icon>
+    <mat-icon *ngIf="opened">close</mat-icon>
   </button>
-</div>
-
-<mat-drawer-container class="example-container">
-  <mat-drawer #drawer>I'm a drawer</mat-drawer>
-</mat-drawer-container>
-
-<div class="content" role="main">
-</div>
-
-<router-outlet></router-outlet>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav #sidenav position="end" mode="side">
+    <a routerLink="/produto/cadastrar" (click)="fecharMenu()">
+      <mat-icon>add_circle_outline</mat-icon>
+      Cadastro
+    </a>
+    <mat-divider></mat-divider>
+    <a routerLink="/produtos" (click)="fecharMenu()">
+      <mat-icon>format_list_bulleted</mat-icon>
+      Produtos
+    </a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main role="main">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
